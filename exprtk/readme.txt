@@ -2877,8 +2877,8 @@ simple user defined USR:
 
 
 In  the  example  above,  a user  specified  USR  is  defined, and  is
-registered with the parser enabling the USR functionality. The when an
-unknown  symbol is  encountered during  the  compilation  process, the
+registered with the parser  enabling the USR functionality.  Then when
+an unknown symbol is  encountered during the compilation  process, the
 USR's process method will be invoked. The USR in the example will only
 'accept' unknown symbols that have  a prefix of 'var_' as  being valid
 variables,  all other  unknown symbols  will result  in a  compilation

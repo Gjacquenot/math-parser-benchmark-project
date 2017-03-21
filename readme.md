@@ -78,8 +78,7 @@ expression suite:
 *   a-(e^(log(7+b)))
 
 
-As an example, the following execution will use the[*"bench_expr_all.txt"*]
-(https://github.com/ArashPartow/math-parser-benchmark-project/blob/master/bench_expr_all.txt)
+As an example, the following execution will use the[*"bench_expr_all.txt"*](https://github.com/ArashPartow/math-parser-benchmark-project/blob/master/bench_expr_all.txt)
 set of expressions, executing each expression 100000 times:
 
     ParserBench.exe 100000 bench_expr_all.txt
