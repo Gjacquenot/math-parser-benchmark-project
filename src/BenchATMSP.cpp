@@ -92,6 +92,43 @@ double BenchATMSP::DoBenchmark(const std::string& sExpr, long iCount)
       bc.var[5] = 4.123456;
       bc.var[6] = 5.123456;
 
+      // Perform basic tests for the variables used
+      // in the expressions
+      {
+         bool test_result = true;
+
+         auto tests_list = test_expressions();
+
+         for (auto test : tests_list)
+         {
+            ATMSB<double> test_bc;
+            ATMSP<double> test_p;
+
+            bc.var[0] = 1.1;
+            bc.var[1] = 2.2;
+            bc.var[2] = 3.3;
+            bc.var[3] = 2.123456;
+            bc.var[4] = 3.123456;
+            bc.var[5] = 4.123456;
+            bc.var[6] = 5.123456;
+
+            if (
+                 test_p.parse(test_bc, test.first, "a, b, c, x, y, z, w") ||
+                 (!is_equal(test.second, bc.run()))
+               )
+            {
+               test_result = false;
+               break;
+            }
+         }
+
+         if (!test_result)
+         {
+            StopTimerAndReport("Failed variable test");
+            return m_fTime1;
+         }
+      }
+
       //Prime the I and D caches for the expression
       {
          double d0 = 0.0;
